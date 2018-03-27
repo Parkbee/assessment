@@ -50,17 +50,17 @@ You can spends as much or as little time on the assessment as you want, but try 
 
 ## User stories
 
-As a **garage owner**
-I want to **view my garage details and all the doors for the garage**
-So that **I know if my garage is online or not**
+As a **garage owner**  
+I want to **view my garage details and all the doors for the garage**  
+So that **I know if my garage is online or not**  
 
 #### Acceptance criteria
 
 * See details of the supplied garage only.
 * Status for each door is displayed.
 
-As a **garage owner**
-I want to **refresh the status of the my garage**
+As a **garage owner**  
+I want to **refresh the status of the my garage**  
 So that **I get the actual status for each door**
 
 #### Acceptance criteria
