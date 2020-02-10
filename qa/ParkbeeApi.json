@@ -1,0 +1,175 @@
+{
+	"info": {
+		"_postman_id": "5ae9b943-3edc-4167-9791-d052af942798",
+		"name": "ParkbeeApi",
+		"description": "Api methods for QA testing assessment\nYou will get a pair of API credentials together with the assessment",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get token",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "1f3303b9-9114-4a71-b3bc-0cb225ae9f72",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"postman.setEnvironmentVariable(\"at\", jsonData.access_token);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "<insert client secret>",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "<insert client id>",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "grant_type",
+							"value": "client_credentials",
+							"type": "text"
+						},
+						{
+							"key": "scope",
+							"value": "garages:pricing:read garages:read",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://login-uat.parkbee.net/connect/token",
+					"protocol": "https",
+					"host": [
+						"login-uat",
+						"parkbee",
+						"net"
+					],
+					"path": [
+						"connect",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get garages",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{at}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api-uat.parkbee.net/v1/garages",
+					"protocol": "https",
+					"host": [
+						"api-uat",
+						"parkbee",
+						"net"
+					],
+					"path": [
+						"v1",
+						"garages"
+					]
+				},
+				"description": "Get all ParkBee locations"
+			},
+			"response": []
+		},
+		{
+			"name": "Calculate price",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{at}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"StartTime\":\"2020-03-01T08:00\",\n\t\"EndTime\":\"2020-03-01T10:00\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api-uat.parkbee.net/v1/garages/c214e88b-bd09-490d-a053-ca6a6a8887f2/pricing/calculate",
+					"protocol": "https",
+					"host": [
+						"api-uat",
+						"parkbee",
+						"net"
+					],
+					"path": [
+						"v1",
+						"garages",
+						"c214e88b-bd09-490d-a053-ca6a6a8887f2",
+						"pricing",
+						"calculate"
+					]
+				},
+				"description": "Calculate price for a parking action"
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{token}}",
+				"type": "string"
+			}
+		]
+	},
+	"protocolProfileBehavior": {}
+}
