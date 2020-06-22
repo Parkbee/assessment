@@ -15,9 +15,8 @@ Your task is to create an front-end, that allows a user to view the avaiability 
 You are free to use any or no UI framework. You can pick the tools you see fit. 
 
 ### API
-You can use the parkbee API to retreive the information you need, and to start/stop the parking actions. 
-
-Credentials will be provided by your recruiter and you can find the available endpoints here : https://developers.parkbee.net
+You can mock the parkbee API to retreive the information you need, and to start/stop the parking actions. 
+The methods we support can be found here https://developers.parkbee.net
 
 ### End result
 The following pages should be visible available for a use : 
