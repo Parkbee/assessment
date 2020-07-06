@@ -73,7 +73,7 @@ Please put answers to the following questions in the [technical.md](technical.md
 4. What is your favorite language feature and can you give a short snippet on how you use it?
 5. What future or current technology do you look forward to the most or want to use and why?
 6. How would you find a production bug/performance issue? Have you done this before?
-7. How would you improve the sample API (bug fixes, security, performance, etc.)?
+7. How would you improve the application (bug fixes, security, performance, etc.)?
 
 We thank you for your time in completing this assessment. If you have questions or comments, please forward them to the person who assigned you the assessment.
 
