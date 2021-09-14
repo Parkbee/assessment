@@ -36,6 +36,7 @@ However please indicate what projects we need to set as startup projects in the 
 * If no ping response is returned, then the door is offline.
 * A login page is not required. The token can be requested when the application starts up.
 * An owner can have only one garage or vice versa. Implementation is up to you.
+* Build it as if it were code that will run in production, so don't leave things dangling that shouldn't be there.
 
 ## Requirements
 
