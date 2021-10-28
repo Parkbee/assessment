@@ -1,12 +1,12 @@
 # ParkBee DevOps Assessment
 
-We'd like to thank you for taking the time to do our DevOps assessment. It consists of a [pratical test](#pratical-test) and some [technical questions](#technical-questions).
+We'd like to thank you for taking the time to do our DevOps assessment. It consists of a [pratical test](#pratical-test).
 
 We'll provide an AWS account, and a MongoDB credentials for you to create & configure the resouces needed for this assessment.
 
 ## Completed assessment
 
-In order for us to review your completed assessment, please put your answers to the technical questions in the [technical.md](technical.md) file and ensure that your completed pratical test is in a single folder. Please, share the results via GitHub.
+In order for us to review your completed assessment, please, share the results via ~private~ GitHub repository.
 
 ## Pratical test
 
@@ -16,7 +16,7 @@ Your task is to create the following resources:
 
 * Kubernetes cluster
 * Create an account on Kubernetes with limited permissions (e.g. only access in a specific namespace)
-* Deploy the [dockers](./docker) containers in the cluster. One needs to be only accessible in the cluster, the other one exposed externally
+* Set up & deploy the [dockers](./docker) containers in the cluster. One needs to be only accessible in the cluster, the other one exposed externally
 * The [API container](./docker/Dockerfile-api) needs to be configure to access a MongoDB cluster
 
 ### Personal choice
@@ -28,7 +28,10 @@ However please indicate what projects we need to set to startup or provide us wi
 
 * The [Dockerfiles](./docker) needs to be deployed in the cluster
 * The MongoDB connection string needs to be configured as a environment variable
-* Don't expose your cluster's API to the whole internet
+* The app has three endpoints, `/`, `/ping` (can be used in the POD's health check), and `/health` (can be used in the POD's health check).
+* The app reads three environment variables, `API_HOST` (the host configured in the API), `API_PORT` (the port configured in the API), and `HTTP_PORT` (the port to expose the app).
+* The API reads three environment variables, `MONGODB_USER` (the user to connect with the MongoDB), `MONGODB_PASSWORD` (the password to connect with the MongoDB), and `HTTP_PORT` (the port to expose the API).
+* The API has three endpoints, `/random-text`, `/ping` (can be used in the POD's health check), and `/health` (can be used in the POD's health check).
 * You'll have to build & publish the [docker containers](./docker)
 
 ## Requirements
@@ -48,13 +51,7 @@ We would like to get a feel for how you would code on a day-to-day basis. Theref
 * Cost-efficience
 * Following the best practices
 * Fix (or don't) bugs if you spot them
-* Share your
-
-## Technical questions
-
-Please, put answers to the following questions in the a [technical.md](./technical.md).
-
-1. 
-2. 
+* Don't expose your cluster's API to the whole internet
+* Don't set the environment variables in the [Dockerfiles](./docker)
 
 We thank you for your time in completing this assessment. If you have questions or comments, please forward them to the person who assigned you the assessment.
