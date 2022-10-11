@@ -6,7 +6,7 @@ We'd like to thank you for taking the time to do our developer assessment. It co
 
 For us to review your completed assessment, please put your answers to the technical questions in the [technical.md](technical.md) file and make sure that your completed coding test is in a single folder. Compress the folder to a zip file and place it on a shared Google Drive folder, DropBox folder, or similar and send the link to your recruiter or ParkBee employee who assigned you the test.
 
-Please provide us with details on how to run the projects. It **must** compile and run in one step.
+> Please provide us with details on how to run the projects. It **must** compile and run in one step.
 
 ## Coding test
 
@@ -50,38 +50,43 @@ As an **integration partner**
 I want to **manage parking sessions of my users**  
 So that **I can provide my users with parking at ParkBee locations**
 
-#### Acceptance criteria
+### Acceptance criteria
 
 **Scenario**: Starting a new parking session for a user that has no other running parking sessions
-**Given** user has no running parking session
-**When** Start parking session API endpoint is called
-**Then** Endpoint should return a successful response with parking session id
-**And** Entry door should open
+
+- **Given** user has no running parking session
+- **When** Start parking session API endpoint is called
+- **Then** Endpoint should return a successful response with parking session id
+- **And** Entry door should open
 
 **Scenario**: Starting a new parking session when Entry door hardware is not reachable
-**Given** user has no running parking session **And** Entry door hardware is not reachable
-**When** Start parking session API endpoint is called
-**Then** Endpoint should return an error code
-**And** New parking session should not be created
+
+- **Given** user has no running parking session **And** Entry door hardware is not reachable
+- **When** Start parking session API endpoint is called
+- **Then** Endpoint should return an error code
+- **And** New parking session should not be created
 
 **Scenario**: Starting a new parking session for a user that already has a running parking session
-**Given** user has a running parking session in any location
-**When** Start parking session API endpoint is called
-**Then** Endpoint should return an error code
-**And** New parking session should not be created
+
+- **Given** user has a running parking session in any location
+- **When** Start parking session API endpoint is called
+- **Then** Endpoint should return an error code
+- **And** New parking session should not be created
 
 **Scenario**: Stopping running parking session
-**Given** parking session exists and is running
-**When** Stop parking session API endpoint is called
-**Then** Endpoint returns a success code
-**And** Parking session should be stopped
-**And** Exit door should open
+
+- **Given** parking session exists and is running
+- **When** Stop parking session API endpoint is called
+- **Then** Endpoint returns a success code
+- **And** Parking session should be stopped
+- **And** Exit door should open
 
 **Scenario**: Stopping parking session that was already stopped
-**Given** parking session exists and is stopped
-**When** Stop parking session API endpoint is called
-**Then** Endpoint returns a success code
-**And** Exit door should not be open
+
+- **Given** parking session exists and is stopped
+- **When** Stop parking session API endpoint is called
+- **Then** Endpoint returns a success code
+- **And** Exit door should not be open
 
 ### Additional requirements
 
