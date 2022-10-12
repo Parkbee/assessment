@@ -42,7 +42,7 @@ Please spend no more than 4 hours on the assessment. Try your best to meet the f
 - Complete the user story below and make sure that the code meets the acceptance criteria below.
 - **The code must compile and run in one step.**
 - **You must include tests for the API.**
-- Do not include artifacts from your local builds, such as NuGet packages and bin folders.
+- Do not include artifacts from your local builds, such as NuGet packages, obj and bin folders.
 
 ## User story
 
