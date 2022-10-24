@@ -10,9 +10,13 @@ For us to review your completed assessment, please put your answers to the techn
 
 ## Coding test
 
-ParkBee provides access to parking locations via API to our partners.
+ParkBee provides access to parking garages via API to our partners.
 
-Your task is to create an API that can start and stop parking sessions and allows the consumer to get parking session details by id.
+Your task is to create an API that can:
+
+- start parking session in one of the garages
+- stop running parking session
+- get number of available spots in the garage
 
 To help you get started, we've created a .NET Core Web API with some simple features:
 
@@ -25,26 +29,29 @@ To help you get started, we've created a .NET Core Web API with some simple feat
 - Each garage contains one or more door(s), doors could be of `Entry`, `Exit`, or `Pedestrian` type.
 - To imitate door opening and hardware reachability check, send a ping to the door's IP address.
 
-### Personal choice
-
-You can use any packages, frameworks, or libraries of your choice. You don't have to use Entity Framework or other dependencies from the current API.
-You can:
-
-- Refactor (or not) the existing code.
-- Add (or don't add) comments, swagger documentation, logging, etc.
-- Apply your code style.
-- Fix (or don't) bugs if you spot them.
-
 ## Requirements
 
 Please spend no more than 4 hours on the assessment. Try your best to meet the following requirements:
 
-- Complete the user story below and make sure that the code meets the acceptance criteria below.
-- **The code must compile and run in one step.**
-- **You must include tests for the API.**
+- Complete the user stories below and make sure that the code meets the acceptance criteria below.
+- The code must compile and run in one step
+- The solution should contain unit test project
 - Do not include artifacts from your local builds, such as NuGet packages, obj and bin folders.
 
-## User story
+### Main requirements
+
+Create API endpoints that allow integration partners to:
+
+- start parking session in one of the garages
+- stop running parking session
+- get number of available spots in the garage
+
+To start a parking session API should accept garage identifier and user information (identifier and license plate).
+A single user should not be able to start multiple parking sessions at the same time.
+User should not be able to start parking session if garage has no availability.
+User should not be able to start parking session if garage hardware is not reachable.
+
+## User stories
 
 As an **integration partner**  
 I want to **manage parking sessions of my users**  
@@ -52,23 +59,32 @@ So that **I can provide my users with parking at ParkBee locations**
 
 ### Acceptance criteria
 
-**Scenario**: Starting a new parking session for a user that has no other running parking sessions
+**Scenario**: Starting a new parking session for a user
 
 - **Given** user has no running parking session
+- **And** garage has available spots
+- **And** locaion hardware is reachable
 - **When** Start parking session API endpoint is called
 - **Then** Endpoint should return a successful response with parking session id
 - **And** Entry door should open
 
+**Scenario**: Starting a new parking session with no available spots in the garage
+
+- **Given** garage has no parking spots available
+- **When** Start parking session API endpoint is called
+- **Then** Endpoint should return an error code
+- **And** New parking session should not be created
+
 **Scenario**: Starting a new parking session when Entry door hardware is not reachable
 
-- **Given** user has no running parking session **And** Entry door hardware is not reachable
+- **Given** Entry door hardware is not reachable
 - **When** Start parking session API endpoint is called
 - **Then** Endpoint should return an error code
 - **And** New parking session should not be created
 
 **Scenario**: Starting a new parking session for a user that already has a running parking session
 
-- **Given** user has a running parking session in any location
+- **Given** user has a running parking session in any garage
 - **When** Start parking session API endpoint is called
 - **Then** Endpoint should return an error code
 - **And** New parking session should not be created
@@ -81,18 +97,27 @@ So that **I can provide my users with parking at ParkBee locations**
 - **And** Parking session should be stopped
 - **And** Exit door should open
 
-**Scenario**: Stopping parking session that was already stopped
+As an **integration partner**  
+I want to **know how many spots are available at the location**  
+So that **I can inform my users about availablity**
 
-- **Given** parking session exists and is stopped
-- **When** Stop parking session API endpoint is called
-- **Then** Endpoint returns a success code
-- **And** Exit door should not be open
+### Acceptance criteria
 
-### Additional requirements
+**Scenario**: Getting availability for garage with running parking sessions
 
-- To start a parking session API should accept garage identifier and user information (identifier and license plate).
-- To stop a parking session API should accept a parking session identifier.
-- A single user should not be able to start multiple parking sessions at the same time.
+- **Given** garage X has running parking actions and Y total parking spots
+- **When** garage availability API endpoint is called
+- **Then** Endpoint should return a successful response with total number of unoccupied spots Z
+
+### Personal choice
+
+You can use any packages, frameworks, or libraries of your choice. You don't have to use Entity Framework or other dependencies from the current API.
+You can:
+
+- Refactor (or not) the existing code.
+- Add (or don't add) comments, swagger documentation, logging, etc.
+- Apply your code style.
+- Fix (or don't) bugs if you spot them.
 
 ## Technical questions
 
