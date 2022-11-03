@@ -30,6 +30,11 @@ public class UserRepository : BaseRepository<UserModel, ParkBeeDbContext>, IUser
         return await FindByPredicateAsync(px => px.LicensePlate.Equals(licensePlate));
     }
 
+    public async Task<UserModel?> FindByIdAsync(Guid userId)
+    {
+        return await FindByPredicateAsync(px => px.ExternalId.Equals(userId));
+    }
+
     public async Task<(int pageNumber, int pageSize, int lastPage, IReadOnlyCollection<UserModel?> items)> ListUsersPaginatedAsync(int pageNumber, int pageSize)
     {
         return await ListPaginatedAsync(px => px.ExternalId != Guid.Empty, pageNumber, pageSize);

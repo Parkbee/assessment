@@ -5,7 +5,7 @@ using Domain.Models.Garage.Spot;
 using Domain.Models.Pagination;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Api.Controllers;
+namespace Presentation.Api.Controllers;
 
 [ApiController]
 [Route("v1/[controller]")]
@@ -56,6 +56,7 @@ public class GarageController : ControllerBase
 
     [HttpGet]
     [ProducesResponseType(typeof(IPagedResponse<GarageDto>),StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
     public async Task<IActionResult> GetGaragePaginatedAsync([FromQuery] int pageNumber = 1, [FromQuery] int pageSize = 10)
     {
         var garages = await _garageService.ListGaragesPaginatedAsync(pageNumber, pageSize);

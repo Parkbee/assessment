@@ -25,9 +25,15 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data.Repositories", "src\Da
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure.CrossCutting", "src\Infrastructure.CrossCutting\Infrastructure.CrossCutting.csproj", "{662D00D4-6171-4489-B9EB-522019D74B5D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Api", "src\Api\Api.csproj", "{6C713518-2DF5-4DA2-A152-F8CCAE21B19E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Presentation.Api", "src\Presentation.Api\Presentation.Api.csproj", "{6C713518-2DF5-4DA2-A152-F8CCAE21B19E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Application.Services", "src\Application.Services\Application.Services.csproj", "{739E3258-899B-40DD-A3F2-84EBCD824A12}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "0.2 - Deploy", "0.2 - Deploy", "{40C0281C-0ECE-4E81-8EBD-7D361FA06B16}"
+	ProjectSection(SolutionItems) = preProject
+		deploy\docker-compose.yml = deploy\docker-compose.yml
+		deploy\Dockerfile = deploy\Dockerfile
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

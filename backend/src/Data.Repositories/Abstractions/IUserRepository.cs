@@ -9,6 +9,7 @@ public interface IUserRepository
     Task DeleteUserAsync(Guid userId);
 
     Task<UserModel?> FindByLicensePlateAsync(string licensePlate);
+    Task<UserModel?> FindByIdAsync(Guid userId);
     Task<(int pageNumber, int pageSize, int lastPage, IReadOnlyCollection<UserModel?> items)> ListUsersPaginatedAsync(
         int pageNumber, int pageSize);
 }

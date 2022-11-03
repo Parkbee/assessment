@@ -1,0 +1,27 @@
+services:
+              
+    sqlserver:
+        image: mcr.microsoft.com/mssql/server
+        container_name: sqlserver
+        environment:
+            - ACCEPT_EULA=Y
+            - SA_PASSWORD=PasswordComplexo1
+        ports:
+            - "1433:1433"
+        
+    parkbee-assessment:
+        build:
+            context: ../src
+            dockerfile: /Dockerfile
+        container_name: parkbee-assessment-api
+        environment:
+            - Storage:SqlServer:Host=sqlserver
+            - Storage:SqlServer:UserName=sa
+            - Storage:SqlServer:Password=PasswordComplexo1
+            - Storage:SqlServer:Database=Checkout_PaymentGateway
+        ports:
+            - "5001:80"
+        depends_on:
+            - sqlserver
+        links:
+            - sqlserver

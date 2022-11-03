@@ -65,6 +65,16 @@ public class BaseRepository<TModel, TDbContext> : IBaseRepository<TModel>
         return await queryable.FirstOrDefaultAsync();
     }
 
+    public async Task<IEnumerable<TModel>> ListByPredicateAsync(Expression<Func<TModel, bool>> predicate)
+    {
+        var queryable = _dbset.Where(predicate);
+        queryable = IncludeProperties?
+            .Aggregate(queryable, 
+                (current, expression) => current.Include(expression));
+
+        return await queryable.ToListAsync();
+    }
+    
     public async Task<(int pageNumber, int pageSize, int lastPage, IReadOnlyCollection<TModel?>)> ListPaginatedAsync(Expression<Func<TModel, bool>> predicate, int pageNumber, int pageSize)
     {
         var count = await CountAsync(predicate);

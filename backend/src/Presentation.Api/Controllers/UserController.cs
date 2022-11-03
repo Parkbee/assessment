@@ -1,8 +1,9 @@
 using Application.Services.Abstractions;
+using Domain.Models.Pagination;
 using Domain.Models.User;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Api.Controllers;
+namespace Presentation.Api.Controllers;
 
 [ApiController]
 [Route("v1/[controller]")]
@@ -27,12 +28,15 @@ public class UserController : ControllerBase
     }
     
     [HttpPut("{userId:guid}")]
+    [ProducesResponseType(typeof(UserDto), StatusCodes.Status201Created)]
     public async Task<IActionResult> CreateUserAsync([FromRoute] Guid userId, [FromBody] UpsertUserRequest upsertUserRequest)
     {
         throw new NotImplementedException();
     }
 
     [HttpGet]
+    [ProducesResponseType(typeof(IPagedResponse<UserDto>),StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
     public async Task<IActionResult> GetUsersPaginatedAsync([FromQuery] int pageNumber = 1, [FromQuery] int pageSize = 10)
     {
         var user = await _userService.ListUsersPaginatedAsync(pageNumber, pageSize);

@@ -32,7 +32,7 @@ public class ApiKeyAuthenticationHandler : AuthenticationHandler<ApiKeyAuthentic
         {
             Logger.LogWarning("An API request was received without the x-api-key header");
 
-            return AuthenticateResult.Fail("Invalid Api Client");
+            return AuthenticateResult.Fail("Invalid Presentation.Api Client");
         }
 
         Logger.BeginScope("{PartnerId}", apiClient.PartnerId);

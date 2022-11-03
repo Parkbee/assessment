@@ -35,6 +35,14 @@ public class GarageSpotRepository : BaseRepository<GarageSpotModel, ParkBeeDbCon
             await DeleteAsync(garageSpotModel.ExternalId);
     }
 
+    public async Task<IEnumerable<GarageSpotModel>> GetAvailableSpotsByGarageIdAsync(Guid garageId)
+    {
+        return await ListByPredicateAsync(px => 
+            px.ExternalId != Guid.Empty && 
+            px.IsAvailable &&
+            px.Garage.ExternalId.Equals(garageId));
+    }
+
     public async Task<(int pageNumber, int pageSize, int lastPage, IReadOnlyCollection<GarageSpotModel?> items)> ListGarageSpotPaginatedAsync(int pageNumber, int pageSize)
     {
         return await ListPaginatedAsync(px => px.ExternalId != Guid.Empty, pageNumber, pageSize);

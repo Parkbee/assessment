@@ -41,7 +41,7 @@ static async Task AddSeedData(WebApplication app)
     var scope = app.Services.CreateScope();
     var unitOfWork = scope.ServiceProvider.GetService<IUnitOfWork>();
 
-    for (var index = 0; index < 10; index++)
+    for (var index = 0; index < 2; index++)
     {
         await unitOfWork?.GarageRepository.CreateGarageAsync(new GarageModel
         {
