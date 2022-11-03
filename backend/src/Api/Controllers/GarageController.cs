@@ -26,7 +26,7 @@ public class GarageController : ControllerBase
     public async Task<IActionResult> CreateGarageAsync([FromBody] CreateGarageRequest createGarageRequest)
     {
         var garage = await _garageService.CreateGarageAsync(createGarageRequest);
-        return Created("", garage);
+        return Created("/garage", garage);
     }
 
     [HttpPatch("{garageId:guid}")]

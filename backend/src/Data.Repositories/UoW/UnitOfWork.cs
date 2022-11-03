@@ -12,6 +12,7 @@ public class UnitOfWork : IUnitOfWork, IDisposable
     public IGarageRepository GarageRepository { get; }
     public IGarageDoorRepository GarageDoorRepository { get; }
     public IGarageSpotRepository GarageSpotRepository { get; }
+    public IUserRepository UserRepository { get; }
 
     public UnitOfWork(ILogger<ParkBeeDbContext> logger, ParkBeeDbContext parkBeeDbContext)
     {
@@ -21,6 +22,7 @@ public class UnitOfWork : IUnitOfWork, IDisposable
         GarageRepository = new GarageRepository(parkBeeDbContext);
         GarageDoorRepository = new GarageDoorRepository(parkBeeDbContext);
         GarageSpotRepository = new GarageSpotRepository(parkBeeDbContext);
+        UserRepository = new UserRepository(parkBeeDbContext);
     }
     
     public async Task CompleteAsync()

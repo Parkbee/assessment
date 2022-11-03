@@ -7,6 +7,7 @@ public interface IUnitOfWork
     IGarageRepository GarageRepository { get; }
     IGarageDoorRepository GarageDoorRepository { get; }
     IGarageSpotRepository GarageSpotRepository { get; }
+    IUserRepository UserRepository { get; }
 
     Task CompleteAsync();
 }
