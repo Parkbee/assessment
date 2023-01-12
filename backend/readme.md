@@ -40,7 +40,7 @@ Please spend no more than 4 hours on the assessment. Try your best to meet the f
 - Create **correct** abstractions.
 - Apply DDD where it makes sense.
 - Ensure you use the .NET framework in the correct way.
-- Apply the SOLID principles in your design.
+- Apply the SOLID principles in your design, S is very important.
 - Ensure you create a folder and project structure that correctly represents it's boundary.
 - Ensure that all your class and method names express the correct intent. 
 - 1 assembly is not going to be enough.
