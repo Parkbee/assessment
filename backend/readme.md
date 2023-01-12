@@ -27,16 +27,23 @@ To help you get started, we've created a .NET Core Web API with some simple feat
 ### Additional information
 
 - Each garage contains one or more door(s), doors could be of `Entry`, `Exit`, or `Pedestrian` type.
-- To imitate door opening and hardware reachability check, send a ping to the door's IP address.
+- To imitate door opening and hardware reachability check, you must send a ping to the door's IP address. Be sure to actually ping an address.
 
 ## Requirements
 
-Please spend no more than 4 hours on the assessment. Try your best to meet the following requirements:
+Please spend no more than 4 hours on the assessment. Try your best to meet the following requirements as this is what we will evaluate your code on:
 
 - Complete the user stories below and make sure that the code meets the acceptance criteria below.
-- The code must compile and run in one step
-- The solution should contain unit test project
+- The code must compile and run in one step.
+- The solution must contain **unit** tests, that tests logic in your classes. 
 - Do not include artifacts from your local builds, such as NuGet packages, obj and bin folders.
+- Create **correct** abstractions.
+- Apply DDD where it makes sense.
+- Ensure you use the .NET framework in the correct way.
+- Apply the SOLID principles in your design.
+- Ensure you create a folder and project structure that correctly represents it's boundary.
+- Ensure that all your class and method names express the correct intent. 
+- 1 assembly is not going to be enough.
 
 ### Main requirements
 
