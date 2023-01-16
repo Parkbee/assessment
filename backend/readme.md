@@ -27,18 +27,30 @@ To help you get started, we've created a .NET Core Web API with some simple feat
 ### Additional information
 
 - Each garage contains one or more door(s), doors could be of `Entry`, `Exit`, or `Pedestrian` type.
-- To imitate door opening and hardware reachability check, send a ping to the door's IP address.
+- To imitate door opening and hardware reachability check, you must send a ping to the door's IP address. Be sure to actually ping an address.
+- You will be dealing with the following parts of the parking domain : availability, access, management
 
 ## Requirements
 
-Please spend no more than 4 hours on the assessment. Try your best to meet the following requirements:
+Please spend no more than 4 hours on the assessment. Try your best to meet the following requirements as this is what we will evaluate your code on:
 
 - Complete the user stories below and make sure that the code meets the acceptance criteria below.
-- The code must compile and run in one step
-- The solution should contain unit test project
+- The code must compile and run in one step.
+- The solution must contain **unit** tests, that tests logic in your classes. 
 - Do not include artifacts from your local builds, such as NuGet packages, obj and bin folders.
+- Create **correct** abstractions.
+- Apply DDD where it makes sense.
+- Ensure you use the .NET framework in the correct way.
+- Apply the SOLID principles in your design, S is very important.
+- Ensure you create a folder and project structure that correctly represents it's boundary.
+- Ensure that all your class and method names express the correct intent. 
+- Ensure that you write your code in a way that it is easily extendable.
+- 1 assembly is not going to be enough.
 
-### Main requirements
+<br>
+<br>
+
+# Main requirements
 
 Create API endpoints that allow integration partners to:
 
@@ -50,6 +62,8 @@ To start a parking session API should accept garage identifier and user informat
 A single user should not be able to start multiple parking sessions at the same time.
 User should not be able to start parking session if garage has no availability.
 User should not be able to start parking session if garage hardware is not reachable.
+
+<br>
 
 ## User stories
 
@@ -63,7 +77,7 @@ So that **I can provide my users with parking at ParkBee locations**
 
 - **Given** user has no running parking session
 - **And** garage has available spots
-- **And** locaion hardware is reachable
+- **And** location hardware is reachable
 - **When** Start parking session API endpoint is called
 - **Then** Endpoint should return a successful response with parking session id
 - **And** Entry door should open
@@ -97,6 +111,9 @@ So that **I can provide my users with parking at ParkBee locations**
 - **And** Parking session should be stopped
 - **And** Exit door should open
 
+<br>
+<br>
+
 As an **integration partner**  
 I want to **know how many spots are available at the location**  
 So that **I can inform my users about availablity**
@@ -109,6 +126,9 @@ So that **I can inform my users about availablity**
 - **When** garage availability API endpoint is called
 - **Then** Endpoint should return a successful response with total number of unoccupied spots Z
 
+<br>
+<br>
+
 ### Personal choice
 
 You can use any packages, frameworks, or libraries of your choice. You don't have to use Entity Framework or other dependencies from the current API.
@@ -118,6 +138,9 @@ You can:
 - Add (or don't add) comments, swagger documentation, logging, etc.
 - Apply your code style.
 - Fix (or don't) bugs if you spot them.
+
+<br>
+<br>
 
 ## Technical questions
 
