@@ -9,15 +9,21 @@ In order for us to review your completed assessment, please put your answers to 
 
 At ParkBee, we want to make sure our garages are used at the full capacity and users get the best prices possible. That is why we are using dynamic pricing in our most popular locations. 
 
-Your task is to create automated tests that validate the dynamic pricing feature on https://parkbee.com/nl. 
+Your task is to create automated tests that validate the dynamic pricing feature on [https://parkbee.com](https://parkbee.com). 
 Feature: 
+
 #### Scenario 1
-- `Given` I am on the parkbee.com home page
-- `When` I input location and time 
-- `Then` I should see the prices of the nearest locations
+- `Given` I am on the [parkbee.com](https://parkbee.com) home page
+- `When` I input location
+- `Then` I should be redirected to [https://maps-web.parkbee.com](https://maps-web.parkbee.com)
 
 #### Scenario 2
-- `Given` I am on the search results page
+- `Given` I am on the [maps-web.parkbee.com](https://maps-web.parkbee.com)
+- `When` I input location and time 
+- `Then` I should see the prices of the nearest locations for that range of time
+
+#### Scenario 3
+- `Given` I am on the [maps-web.parkbee.com](https://maps-web.parkbee.com)
 - `When` I change the desired parking time 
 - `Then` parking prices are updated accordingly
 
