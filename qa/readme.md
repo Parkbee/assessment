@@ -35,16 +35,32 @@ Feel free to use any frameworks, libraries and tools of your choice.
 
 ParkBee partners are using our public API to provide their users access to Parkbee locations. Our goal is to make sure the API runs smoothly and flawlessly. That is where the automated tests come in use. 
 
-Your next task will be to write the test automation for "Calculate garage price" endpoint. This method is used to determine the price of a parking action.
-You can find the API documentation at https://developers.parkbee.net/garages/pricing/calculate-post.
+Your next task will be to write the test automation for "Creating booking than start and stop parking session". Its one of the most common flow within ParkBee. 
 
-#### Authentication
-Parkbee API uses Bearer token authentication, you can read more about that in our documentation: https://developers.parkbee.net/general/authentication.
-You will get a pair of credentials to perform this test assessment.
+#### Scenario 1
+- `Given` I am Parkbee developer
+- `When` I make booking [https://developers.parkbee.net/booking/create]
+- `Then` I should create booking in system.
+
+#### Scenario 2
+- `Given` I am ParkBee developer
+- `When` I confirm booking  [https://developers.parkbee.net/booking/confirm]
+- `Then` My booking status should be active instead of in progress.
+
+#### Scenario 3
+- `Given` I am ParkBee developer
+- `When` I want to start parking session [https://developers.parkbee.net/booking/start-parking]
+- `Then` this action should start parking session for my booking
+
+#### Scenario 4
+- `Given` I am ParkBee developer
+- `When` I want to stop parking session [https://developers.parkbee.net/booking/stop-parking]
+- `Then` This action should stop parking session for my booking
+
+Happy and unhappy paths needs be covered based on api documentation.
 
 #### Test data:
-Use "Get garages" endpoint to get the garage list on the sandbox environment: https://developers.parkbee.net/garages/index.
-To help you get started, we created a Postman project with all endpoints you might need for this task. Replace placeholders with the actual API credentials you got together with this assessment in the "Get Token" endpoint. 
+You can mock api response in your needs. 
 
 Feel free to use any frameworks, libraries, and tools of your choice.
 
