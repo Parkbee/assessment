@@ -60,7 +60,8 @@ Your next task will be to write the test automation for "Creating booking than s
 Happy and unhappy paths needs be covered based on api documentation.
 
 #### Test data:
-You can mock api response in your needs. 
+**You can mock API response in your needs.** 
+*You don't have to actually make any real request*
 
 Feel free to use any frameworks, libraries, and tools of your choice.
 
