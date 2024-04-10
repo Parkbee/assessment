@@ -1,8 +1,0 @@
-FROM alpine
-
-ENV key=value
-
-COPY source dest
-
-CMD [ "executable" ]
-ENTRYPOINT [ "executable" ]

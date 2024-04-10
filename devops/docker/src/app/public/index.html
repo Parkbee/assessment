@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+            color: #333;
+        }
+        .container {
+            text-align: center;
+            padding: 20px;
+            border-radius: 10px;
+            background: #fff;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .content {
+            font-size: 20px;
+            margin-top: 20px;
+            display: flex;
+            align-items: center;
+        }
+
+        #randomText {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Welcome!</h1>
+    <div class="content">
+        <p>Random Text: &nbsp;</p>
+        <div id="randomText" >Loading...</div>
+    </div>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", async function() {
+        try {
+            const response = await fetch('/random-text', { cache: 'no-store' });
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            const text = await response.text();
+            document.getElementById('randomText').textContent = text; // Corrected ID here
+        } catch (error) {
+            console.error('Fetch error:', error);
+            document.getElementById('randomText').textContent = 'Failed to load data.'; // Corrected ID here
+        }
+    });
+</script>
+
+
+</body>
+</html>
