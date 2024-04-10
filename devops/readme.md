@@ -25,12 +25,11 @@ However please indicate what projects we need to set to startup or provide us wi
 
 ### Additional information
 
-* The [Dockerfiles](./docker) needs to be deployed in the cluster
-* The MongoDB connection string needs to be configured as a environment variable
-* The app has three endpoints, `/`, `/ping` (can be used in the POD's health check), and `/health` (can be used in the POD's health check).
-* The app reads three environment variables, `API_HOST` (the host configured in the API), `API_PORT` (the port configured in the API), and `PORT` (the port to expose the app).
-* The API reads one environment variable, `HTTP_PORT` (the port to expose the API).
+* The `./docker/api` and `./docker/app` needs to be deployed in the cluster
+* The `app` reads three environment variables, `API_HOST` (the host configured in the API), `API_PORT` (the port configured in the API), and `PORT` (the port to expose the app).
+* The `api` reads one environment variable, `HTTP_PORT` (the port to expose the API).
 * The API has three endpoints, `/random-text`, `/ping` (can be used in the POD's health check), and `/health` (can be used in the POD's health check).
+* * The app has three endpoints, `/`, `/ping` (can be used in the POD's health check), and `/health` (can be used in the POD's health check).
 * You'll have to build & publish the [docker containers](./docker)
 
 ## Requirements
