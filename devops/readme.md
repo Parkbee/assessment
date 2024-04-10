@@ -48,6 +48,8 @@ You can spends as much or as little time on the assessment as you want, but try 
 We would like to get a feel for how you would code on a day-to-day basis. Therefor consider the following:
 
 * Cluster is fully monitored
+* Cluster is having a log management platform (it can be ELK)
+* A pipeline (GitHub actions is fine) for terraform and k8s deployment 
 * Cost-efficience
 * Following the best practices
 * Fix (or don't) bugs if you spot them
