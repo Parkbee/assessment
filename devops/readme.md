@@ -4,9 +4,11 @@ We'd like to thank you for taking the time to do our DevOps assessment. It consi
 
 We'll provide an AWS account for you to create & configure the resouces needed for this assessment.
 
+You'll have to use EKS and ECR for deploying the kubernetes cluster and docker images
+
 ## Completed assessment
 
-In order for us to review your completed assessment, please, share the results via ~private~ GitHub repository.
+In order for us to review your completed assessment, please, share the results via GitHub repository.
 
 ## Pratical test
 
@@ -38,7 +40,8 @@ You can spends as much or as little time on the assessment as you want, but try 
 
 * Healthy cluster & PODs
 * Cluster is secure
-* Share your IaaC & answers in a private repository
+* EKS and ECR are used
+* Terraform is used for deploying the infra
 * **We must be able to replica your solution**
 
 ### Added awesomeness
